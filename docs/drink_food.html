@@ -30,17 +30,17 @@
             }
 
             .tab {
-                padding: 14px 36px;
+                padding: 12px 32px;
                 cursor: pointer;
                 border: 2px solid #d4af37;
                 background-color: #fffbe8;
                 margin: 0;
                 font-weight: bold;
-                border-radius: 12px 12px 0 0;
-                transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s, transform 0.15s;
+                border-radius: 8px 8px 0 0;
+                transition: background 0.2s, color 0.2s, border 0.2s;
                 color: #b08d23;
                 box-shadow: 0 2px 6px rgba(212, 175, 55, 0.08);
-                font-size: 1.12em;
+                font-size: 1.08em;
                 letter-spacing: 0.03em;
                 position: relative;
                 z-index: 1;
@@ -50,8 +50,6 @@
                 background-color: #f5e7b8;
                 color: #a88a2c;
                 border-color: #bfa23a;
-                transform: translateY(-2px) scale(1.03);
-                box-shadow: 0 4px 12px rgba(212, 175, 55, 0.13);
             }
 
             .tab.active {
@@ -59,21 +57,6 @@
                 color: #fff;
                 border-bottom: 2px solid #fff;
                 z-index: 2;
-                box-shadow: 0 8px 24px rgba(212, 175, 55, 0.18);
-                transform: translateY(-4px) scale(1.06);
-            }
-
-            .tab.active::after {
-                content: '';
-                display: block;
-                position: absolute;
-                left: 10%;
-                right: 10%;
-                bottom: -6px;
-                height: 6px;
-                background: linear-gradient(90deg, #fffbe8 0%, #d4af37 100%);
-                border-radius: 0 0 8px 8px;
-                z-index: 3;
             }
 
             .content {
@@ -91,6 +74,11 @@
                 padding-bottom: 5px;
                 margin-bottom: 10px;
             }
+            .foodsection-title {
+                font-weight: bold;
+                font-size: 1.2em;
+                padding-top: 30px;
+            }
 
             ul {
                 list-style: none;
@@ -104,7 +92,7 @@
             /* food.htmlに合わせたスタイル追加 */
             .title {
                 font-family: 'Playfair Display', 'Noto Serif JP', serif;
-                font-size: 1.5em;
+                font-size: 2.0em;
                 font-weight: bold;
                 text-align: center;
                 margin-bottom: 15px;
@@ -112,23 +100,23 @@
             }
             .french {
                 font-family: 'Playfair Display', serif;
-                font-size: 1em;
+                font-size: 0.98em;
                 color: #333;
                 font-style: italic;
                 margin-top: 8px;
             }
+
             .japanese {
                 font-family: 'Noto Serif JP', serif;
                 font-size: 0.98em;
                 color: #555;
                 margin-bottom: 10px;
-                margin-left: 10px;
             }
     </style>
 </head>
 <body>
 
-    <h1>Menu</h1>
+    <h1>Wedding Menu</h1>
 
     <div class="tabs">
         <div class="tab active" data-target="drink">Drink Menu</div>
@@ -172,7 +160,9 @@
                 <li>コーラ／コーラゼロ</li>
                 <li>ペリエ</li>
                 <li>エヴィアン</li>
-                <li>オレンジジュース／グレープフルーツジュース／アップルジュース</li>
+                <li>オレンジジュース</li>
+                <li>グレープフルーツジュース</li>
+                <li>アップルジュース</li>
             </ul>
         </section>
         <section>
@@ -193,57 +183,57 @@
             <div class="title">和風フレンチ ZEN</div>
         </section>
         <section>
-            <div class="section-title">～Plateau de Sept Délices 和風パレットオードブル～</div>
+            <div class="foodsection-title">～Plateau de Sept Délices 和風パレットオードブル～</div>
             <ul>
-                <li class="french">Fruits de mer et gelée à la japonaise, velouté de chou-fleur</li>
-                <li class="japanese">和風ジュレとシーフード　カリフラワーのブルーテ</li>
-                <li class="french">Royale de crabe</li>
-                <li class="japanese">蟹のロワイヤル風</li>
-                <li class="french">Crevettes douces au gingembre, condiment japonais</li>
-                <li class="japanese">甘海老の生姜風味　和風コンディマン</li>
-                <li class="french">Saumon mariné maison</li>
-                <li class="japanese">自家製サーモンマリネ</li>
-                <li class="french">Deux pièces de nigiri sushi</li>
-                <li class="japanese">握り寿司２種</li>
-                <li class="french">Velouté de potiron</li>
-                <li class="japanese">パンプキンスープ</li>
+            <li class="french">Fruits de mer et gelée à la japonaise, velouté de chou-fleur</li>
+            <li class="japanese">和風ジュレとシーフード　カリフラワーのブルーテ</li>
+            <li class="french">Royale de crabe</li>
+            <li class="japanese">蟹のロワイヤル風</li>
+            <li class="french">Crevettes douces au gingembre, condiment japonais</li>
+            <li class="japanese">甘海老の生姜風味　和風コンディマン</li>
+            <li class="french">Saumon mariné maison</li>
+            <li class="japanese">自家製サーモンマリネ</li>
+            <li class="french">Deux pièces de nigiri sushi</li>
+            <li class="japanese">握り寿司２種</li>
+            <li class="french">Velouté de potiron</li>
+            <li class="japanese">パンプキンスープ</li>
             </ul>
         </section>
         <section>
-            <div class="section-title" style="margin-bottom:0.0em;">Gratin d’oreille de mer</div>
+            <div class="foodsection-title french" style="margin-bottom:0.0em;">Gratin d’oreille de mer</div>
             <ul>
-                <li class="french">鮑とリゾットのグラタン　炎の演出</li>
+            <li class="japanese">鮑とリゾットのグラタン　炎の演出</li>
             </ul>
         </section>
         <section>
-            <div class="section-title">Croustillant de pomme de terre aux homard et saint-jacques</div>
+            <div class="foodsection-title french">Croustillant de pomme de terre aux homard et saint-jacques</div>
             <ul>
-                <li class="french">香ばしく焼き上げたオマール海老とホタテ貝柱のポテト包み焼き</li>
+            <li class="japanese">香ばしく焼き上げたオマール海老とホタテ貝柱のポテト包み焼き</li>
             </ul>
         </section>
         <section>
-            <div class="section-title">Sorbet au poire</div>
+            <div class="foodsection-title french">Sorbet au poire</div>
             <ul>
-                <li class="french">洋梨のシャーベット</li>
+            <li class="japanese">洋梨のシャーベット</li>
             </ul>
         </section>
         <section>
-            <div class="section-title">Filet de bœuf Poêlés sauce Périgueux</div>
+            <div class="foodsection-title french">Filet de bœuf Poêlés sauce Périgueux</div>
             <ul>
-                <li class="french">国産牛フィレ肉のロティ　トリュフソース</li>
-                <li>～フランベ・カッティングパフォーマンス～</li>
+            <li class="japanese">国産牛フィレ肉のロティ　トリュフソース</li>
+            <li>～フランベ・カッティングパフォーマンス～</li>
             </ul>
         </section>
         <section>
-            <div class="section-title">Mont-blanc aux marrons Gelée de Wasanbon. sorbet au cassis</div>
+            <div class="foodsection-title french">Mont-blanc aux marrons Gelée de Wasanbon. sorbet au cassis</div>
             <ul>
-                <li class="french">ホワイトモンブラン　和三盆のゼリー　カシスのシャーベットを添えて</li>
+            <li class="japanese">ホワイトモンブラン　和三盆のゼリー　カシスのシャーベットを添えて</li>
             </ul>
         </section>
         <section>
-            <div class="section-title">Café ou Thé</div>
+            <div class="foodsection-title french">Café ou Thé</div>
             <ul>
-                <li class="french">コーヒー 又は 紅茶</li>
+            <li class="japanese">コーヒー 又は 紅茶</li>
             </ul>
         </section>
     </div>
