@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Noto+Serif+JP&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+            body {
+                font-family: 'Noto Serif JP', serif;
+                background-color: #fff;
+                color: #333;
+                margin: 40px auto;
+                padding: 20px;
+                max-width: 800px;
+                line-height: 1.6;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 2em;
+                margin-bottom: 20px;
+            }
+            .tabs {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 24px;
+                gap: 12px;
+            }
+
+            .tab {
+                padding: 14px 36px;
+                cursor: pointer;
+                border: 2px solid #d4af37;
+                background-color: #fffbe8;
+                margin: 0;
+                font-weight: bold;
+                border-radius: 12px 12px 0 0;
+                transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s, transform 0.15s;
+                color: #b08d23;
+                box-shadow: 0 2px 6px rgba(212, 175, 55, 0.08);
+                font-size: 1.12em;
+                letter-spacing: 0.03em;
+                position: relative;
+                z-index: 1;
+            }
+
+            .tab:not(.active):hover {
+                background-color: #f5e7b8;
+                color: #a88a2c;
+                border-color: #bfa23a;
+                transform: translateY(-2px) scale(1.03);
+                box-shadow: 0 4px 12px rgba(212, 175, 55, 0.13);
+            }
+
+            .tab.active {
+                background-color: #d4af37;
+                color: #fff;
+                border-bottom: 2px solid #fff;
+                z-index: 2;
+                box-shadow: 0 8px 24px rgba(212, 175, 55, 0.18);
+                transform: translateY(-4px) scale(1.06);
+            }
+
+            .tab.active::after {
+                content: '';
+                display: block;
+                position: absolute;
+                left: 10%;
+                right: 10%;
+                bottom: -6px;
+                height: 6px;
+                background: linear-gradient(90deg, #fffbe8 0%, #d4af37 100%);
+                border-radius: 0 0 8px 8px;
+                z-index: 3;
+            }
+
+            .content {
+                display: none;
+            }
+
+            .content.active {
+                display: block;
+            }
+
+            .section-title {
+                font-weight: bold;
+                border-bottom: 1px solid #d4af37;
+                font-size: 1.2em;
+                padding-bottom: 5px;
+                margin-bottom: 10px;
+            }
+
+            ul {
+                list-style: none;
+                padding-left: 15px;
+            }
+
+            li {
+                padding: 2px 0;
+            }
+
+            /* food.htmlに合わせたスタイル追加 */
+            .title {
+                font-family: 'Playfair Display', 'Noto Serif JP', serif;
+                font-size: 1.5em;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 15px;
+                letter-spacing: 0.05em;
+            }
+            .french {
+                font-family: 'Playfair Display', serif;
+                font-size: 1em;
+                color: #333;
+                font-style: italic;
+                margin-top: 8px;
+            }
+            .japanese {
+                font-family: 'Noto Serif JP', serif;
+                font-size: 0.98em;
+                color: #555;
+                margin-bottom: 10px;
+                margin-left: 10px;
+            }
+    </style>
+</head>
+<body>
+
+    <h1>Menu</h1>
+
+    <div class="tabs">
+        <div class="tab active" data-target="drink">Drink Menu</div>
+        <div class="tab" data-target="food">Food Menu</div>
+    </div>
+
+    <div id="drink" class="content active">
+        <section>
+            <div class="section-title">アルコール / Alcohol</div>
+            <ul>
+                <li>白ワイン：バロン フィリップ シャルドネ</li>
+                <li>赤ワイン：バロン フィリップ カベルネソーヴィニヨン</li>
+                <li>ウイスキー</li>
+                <li>ビール：YEBISU ビール</li>
+                <li>梅酒：紀州蜂蜜梅酒</li>
+                <li>日本酒：松竹梅／勘兵衛</li>
+                <li>焼酎：麦／芋</li>
+                <li>カクテル：ジン／カンパリ／カシス／ピーチ／ライチ</li>
+            </ul>
+        </section>
+        <section>
+            <div class="section-title">ノンアルコール / Non-Alcoholic</div>
+            <ul>
+                <li>ノンアルコールビール</li>
+                <li>ノンアルコールカクテル：
+                    <ul>
+                        <li>ピンクグレープモーニ</li>
+                        <li>キウイ ピリーニャ</li>
+                        <li>巨峰スカッシュ</li>
+                        <li>ベイサイド ティー</li>
+                        <li>ピーチ スパークル</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <div class="section-title">ソフトドリンク / Soft Drinks</div>
+            <ul>
+                <li>ウーロン茶</li>
+                <li>ジンジャーエール</li>
+                <li>コーラ／コーラゼロ</li>
+                <li>ペリエ</li>
+                <li>エヴィアン</li>
+                <li>オレンジジュース／グレープフルーツジュース／アップルジュース</li>
+            </ul>
+        </section>
+        <section>
+            <div class="section-title">ノンカフェインドリンク / Caffeine-Free</div>
+            <ul>
+                <li>ヤミーティー</li>
+                <li>フェイジョアティー</li>
+                <li>ハニーレモン＆ジンジャーティー</li>
+                <li>ルイボスティー</li>
+                <li>ミントティー</li>
+                <li>たんぽぽコーヒー</li>
+            </ul>
+        </section>
+    </div>
+
+    <div id="food" class="content">
+        <section>
+            <div class="title">和風フレンチ ZEN</div>
+        </section>
+        <section>
+            <div class="section-title">～Plateau de Sept Délices 和風パレットオードブル～</div>
+            <ul>
+                <li class="french">Fruits de mer et gelée à la japonaise, velouté de chou-fleur</li>
+                <li class="japanese">和風ジュレとシーフード　カリフラワーのブルーテ</li>
+                <li class="french">Royale de crabe</li>
+                <li class="japanese">蟹のロワイヤル風</li>
+                <li class="french">Crevettes douces au gingembre, condiment japonais</li>
+                <li class="japanese">甘海老の生姜風味　和風コンディマン</li>
+                <li class="french">Saumon mariné maison</li>
+                <li class="japanese">自家製サーモンマリネ</li>
+                <li class="french">Deux pièces de nigiri sushi</li>
+                <li class="japanese">握り寿司２種</li>
+                <li class="french">Velouté de potiron</li>
+                <li class="japanese">パンプキンスープ</li>
+            </ul>
+        </section>
+        <section>
+            <div class="section-title" style="margin-bottom:0.0em;">Gratin d’oreille de mer</div>
+            <ul>
+                <li class="french">鮑とリゾットのグラタン　炎の演出</li>
+            </ul>
+        </section>
+        <section>
+            <div class="section-title">Croustillant de pomme de terre aux homard et saint-jacques</div>
+            <ul>
+                <li class="french">香ばしく焼き上げたオマール海老とホタテ貝柱のポテト包み焼き</li>
+            </ul>
+        </section>
+        <section>
+            <div class="section-title">Sorbet au poire</div>
+            <ul>
+                <li class="french">洋梨のシャーベット</li>
+            </ul>
+        </section>
+        <section>
+            <div class="section-title">Filet de bœuf Poêlés sauce Périgueux</div>
+            <ul>
+                <li class="french">国産牛フィレ肉のロティ　トリュフソース</li>
+                <li>～フランベ・カッティングパフォーマンス～</li>
+            </ul>
+        </section>
+        <section>
+            <div class="section-title">Mont-blanc aux marrons Gelée de Wasanbon. sorbet au cassis</div>
+            <ul>
+                <li class="french">ホワイトモンブラン　和三盆のゼリー　カシスのシャーベットを添えて</li>
+            </ul>
+        </section>
+        <section>
+            <div class="section-title">Café ou Thé</div>
+            <ul>
+                <li class="french">コーヒー 又は 紅茶</li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        const contents = document.querySelectorAll('.content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.target).classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
