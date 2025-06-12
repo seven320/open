@@ -110,6 +110,16 @@
             li {
                 padding: 2px 0;
             }
+            #drink li::before {
+                content: "— ";
+                left: 0;
+                color: #d4af37;
+            }
+
+            li li::before {
+                content: "・";
+                color: #b08d23;
+            }
 
             .drink-comment {
                 font-size: 0.4em;
