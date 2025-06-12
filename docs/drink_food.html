@@ -111,6 +111,13 @@
                 padding: 2px 0;
             }
 
+            .drink-comment {
+                font-size: 0.4em;
+                color: #666;
+                margin-top: 5px;
+                margin-bottom: 15px;
+            }
+
             /* food.htmlに合わせたスタイル追加 */
             .title {
                 font-family: 'Playfair Display', 'Noto Serif JP', serif;
@@ -133,6 +140,84 @@
                 font-size: 0.98em;
                 color: #555;
                 margin-bottom: 10px;
+            }
+
+            .detail-btn {
+                background: transparent;
+                color: #d4af37;
+                border: 1px solid #d4af37;
+                padding: 8px 24px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 0.9em;
+                margin-left: 12px;
+                transition: all 0.4s ease;
+                font-family: 'Noto Serif JP', serif;
+                letter-spacing: 0.1em;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .detail-btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                    120deg,
+                    transparent,
+                    rgba(212, 175, 55, 0.2),
+                    transparent
+                );
+                transition: 0.5s;
+            }
+
+            .detail-btn:hover::before {
+                left: 100%;
+            }
+
+            .detail-btn:hover {
+                color: #b08d23;
+                border-color: #b08d23;
+                background-color: rgba(212, 175, 55, 0.05);
+            }
+
+            #img-modal {
+                background: rgba(0, 0, 0, 0.9); /* 背景をより暗く */
+                backdrop-filter: blur(6px);
+                padding: 20px;
+            }
+
+            #modal-close {
+                font-family: 'Noto Serif JP', serif;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+                transition: all 0.3s ease;
+            }
+
+            #modal-close:hover {
+                background: rgba(255, 255, 255, 0.2);
+                transform: rotate(90deg);
+            }
+
+            #modal-img {
+                transform: scale(0.98);
+                transition: transform 0.3s ease;
+                max-width: 95vw;  /* 画面幅の95%まで使用可能に */
+                max-height: 90vh; /* 画面高さの90%まで使用可能に */
+                width: auto;
+                height: auto;
+                object-fit: contain;
+            }
+
+            #img-modal.show #modal-img {
+                transform: scale(1);
             }
     </style>
 </head>
@@ -162,13 +247,21 @@
             <div class="section-title">ノンアルコール / Non-Alcoholic</div>
             <ul>
                 <li>ノンアルコールビール</li>
-                <li>ノンアルコールカクテル：
+                <li>
+                    ノンアルコールカクテル
+                    <button class="detail-btn" data-img="explain.png">詳細を見る</button>
+                    <div id="img-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); backdrop-filter:blur(4px); justify-content:center; align-items:center; z-index:9999;">
+                        <span id="modal-close" style="position:absolute; top:30px; right:40px; color:#fff; cursor:pointer;">&times;</span>
+                        <img id="modal-img" src="" alt="詳細画像" style="max-width:90vw; max-height:80vh; border-radius:8px; box-shadow:0 4px 24px rgba(0,0,0,0.3);" />
+                    </div>
                     <ul>
-                        <li>ピンクグレープモーニ</li>
-                        <li>キウイ ピリーニャ</li>
-                        <li>巨峰スカッシュ</li>
-                        <li>ベイサイド ティー</li>
-                        <li>ピーチ スパークル</li>
+                        <ul>
+                            <li>ピンクグレープモーニ</li>
+                            <li>キウイ ピリーニャ</li>
+                            <li>巨峰スカッシュ</li>
+                            <li>ベイサイド ティー</li>
+                            <li>ピーチ スパークル</li>
+                        </ul>
                     </ul>
                 </li>
             </ul>
@@ -189,12 +282,48 @@
         <section>
             <div class="section-title">ノンカフェインドリンク / Caffeine-Free</div>
             <ul>
-                <li>ヤミーティー</li>
-                <li>フェイジョアティー</li>
-                <li>ハニーレモン＆ジンジャーティー</li>
-                <li>ルイボスティー</li>
-                <li>ミントティー</li>
-                <li>たんぽぽコーヒー</li>
+                <li>
+                    ヤミーティー
+                    <div class="drink-comment">
+                        フレッシュなストロベリーとリッチなバニラをイメージしルイボスに香りづけ
+                        包み込まれるような優しい飲み口に癒されます
+                    </div>
+                </li>
+                <li>
+                    フェイジョアティー
+                    <div class="drink-comment">
+                        ビタミンCとカリウムが南国の果実フェイジョアとヨーロッパではシロップなどに重宝されるエンダーフラワーをブレンド
+                        甘さと爽やかさを感じるフルーティーな一杯
+                    </div>
+                </li>
+                <li>
+                    ハニーレモン＆ジンジャーティー
+                    <div class="drink-comment">
+                        気分をリフレッシュするハーブ飲料でレモン果汁に砂糖と蜂蜜で甘さをつけキリッとした絡みのジンジャーエキスを加えました
+                        はちみつの自然な甘みとパンチのある生姜の風味が織りなすハーモニーをお楽しみください
+                    </div>
+                </li>
+                <li>
+                    ルイボスティー
+                    <div class="drink-comment">
+                        体細胞を老化から守る活性酵素除去に似た成分「フラボノイド」が豊富に含まれております
+                        冷え性や便秘の改善にも効果的です
+                    </div>
+                </li>
+                <li>
+                    ミントティー
+                    <div class="drink-comment">
+                        爽やかな芳香とすっきりとした味わいが魅力
+                        結構が促進され内臓機能も高まり、胃腸の動きも良くなるために町内に溜まったガスや老廃物の排出効果が期待されます
+                    </div>
+                </li>
+                <li>
+                    たんぽぽコーヒー
+                    <div class="drink-comment">
+                        たんぽぽの根を焙煎して作るたんぽぽ茶はコーヒーに似た風味が特徴
+                        鉄分・ミネラル・ビタミンA・Cを多く含み、冷え性やむくみが改善される効果もあります
+                    </div>
+                </li>
             </ul>
         </section>
     </div>
@@ -272,6 +401,26 @@
                 document.getElementById(tab.dataset.target).classList.add('active');
             });
         });
+        document.querySelector('.detail-btn').addEventListener('click', function(e) {
+            e.stopPropagation();
+            const modal = document.getElementById('img-modal');
+            document.getElementById('modal-img').src = this.dataset.img;
+            modal.style.display = 'flex';
+            setTimeout(() => modal.classList.add('show'), 10);
+        });
+
+        document.getElementById('modal-close').onclick = function() {
+            const modal = document.getElementById('img-modal');
+            modal.classList.remove('show');
+            setTimeout(() => modal.style.display = 'none', 300);
+        };
+
+        document.getElementById('img-modal').onclick = function(e) {
+            if (e.target === this) {
+                this.classList.remove('show');
+                setTimeout(() => this.style.display = 'none', 300);
+            }
+        };
     </script>
 
 </body>
